@@ -18,6 +18,7 @@ public class Job {
     //  the 'id' field.
     public Job(){
         id = nextId;
+        nextId++;
     }
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency){
 
@@ -32,6 +33,35 @@ public class Job {
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public boolean equals(Object toBeCompared) {
+        //Reference check
+        if (this == toBeCompared)
+            return true;
+        //Null check
+        if (toBeCompared == null) {
+            return false;
+        }
+        // Class check
+           if (!(toBeCompared instanceof Job)) {
+               return false;
+           }
+        //Cast
+        Job job = (Job) toBeCompared;
+    //custom compare
+        return id == job.id;
+
+        }
+
+
+
+
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
