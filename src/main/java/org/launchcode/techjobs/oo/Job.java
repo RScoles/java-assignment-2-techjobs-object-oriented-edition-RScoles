@@ -59,9 +59,48 @@ public class Job {
 
         }
 
+    @Override
+    public String toString() {
+        String nameCheck = this.name;
+        if (nameCheck == "" || nameCheck == null) {
+            nameCheck = "Data not available";
+        }
 
+        String employerCheck = this.employer.getValue();
 
+        if (employerCheck == "" || employerCheck == null) {
+            employerCheck = "Data not available";
+        }
 
+        String locationCheck = this.location.getValue();
+        if (locationCheck == "" || locationCheck == null) {
+            locationCheck = "Data not available";
+        }
+
+        String positionTypeCheck = this.positionType.getValue();
+        if (positionTypeCheck == "" || positionTypeCheck == null) {
+            positionTypeCheck = "Data not available";
+        }
+
+        String coreCompetencyCheck = this.coreCompetency.getValue();
+        if (coreCompetencyCheck == "" || coreCompetencyCheck == null) {
+            coreCompetencyCheck = "Data not available";
+        }
+        if (nameCheck == ""|| nameCheck == null  &&
+                employerCheck == "" || employerCheck == null &&
+                locationCheck == "" || locationCheck == null &&
+                positionTypeCheck == "" || positionTypeCheck == null  &&
+                coreCompetencyCheck == "" ||coreCompetencyCheck == null) {
+            return "OOPS! This job does not seem to exist.";
+        }
+
+        return "\n" + "ID: " + id + "\n" +
+                "Name: " + nameCheck + "\n" +
+                "Employer: " + employerCheck + "\n" +
+                "Location: " + locationCheck + "\n" +
+                "Position Type: " + positionTypeCheck + "\n" +
+                "Core Competency: " + coreCompetencyCheck + "\n";
+    }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
