@@ -2,7 +2,7 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
-public class Job {
+public class Job extends JobField {
 
     private int id;
     private static int nextId = 1;
@@ -62,35 +62,33 @@ public class Job {
     @Override
     public String toString() {
         String nameCheck = this.name;
-        if (nameCheck == "" || nameCheck == null) {
+        if (nameCheck == "") {
             nameCheck = "Data not available";
         }
 
         String employerCheck = this.employer.getValue();
 
-        if (employerCheck == "" || employerCheck == null) {
+        if (employerCheck == "") {
             employerCheck = "Data not available";
         }
 
         String locationCheck = this.location.getValue();
-        if (locationCheck == "" || locationCheck == null) {
+        if (locationCheck == "") {
             locationCheck = "Data not available";
         }
 
         String positionTypeCheck = this.positionType.getValue();
-        if (positionTypeCheck == "" || positionTypeCheck == null) {
+        if (positionTypeCheck == "") {
             positionTypeCheck = "Data not available";
         }
 
         String coreCompetencyCheck = this.coreCompetency.getValue();
-        if (coreCompetencyCheck == "" || coreCompetencyCheck == null) {
+        if (coreCompetencyCheck == "") {
             coreCompetencyCheck = "Data not available";
         }
-        if (nameCheck == ""|| nameCheck == null  &&
-                employerCheck == "" || employerCheck == null &&
-                locationCheck == "" || locationCheck == null &&
-                positionTypeCheck == "" || positionTypeCheck == null  &&
-                coreCompetencyCheck == "" ||coreCompetencyCheck == null) {
+        if (nameCheck == ""  &&  employerCheck == "" &&
+                locationCheck == ""  && positionTypeCheck == "" &&
+                coreCompetencyCheck == "") {
             return "OOPS! This job does not seem to exist.";
         }
 
